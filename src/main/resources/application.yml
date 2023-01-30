@@ -1,0 +1,34 @@
+logging:
+  level:
+    com :
+      example:
+        runnable_blockingqueue_test: debug
+
+
+history:
+  thread_cnt : 3
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
+    username: jig123
+    password: root
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      #create : ?? ????? DB???, update : ????? DB? ??, none : ?? ? ?
+      ddl-auto: create
+      naming:
+        # org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl : ??? ??? ???? ??? ??
+        # org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy : userRole ->  user_role ???? ???? ??? ??? ??
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      # true : jpa? ???? ?? ??? ??? ??, false : ?? ??? ?? ?? ? ?(? ????? ???)
+      use-new-id-generator-mappings: false
+    # true : ??? sql ??? ?
+    show-sql: false
+    # ??? sql ??
+    properties:
+      hibernate.format_sql: true
